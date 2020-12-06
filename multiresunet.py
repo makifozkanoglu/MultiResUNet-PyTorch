@@ -47,7 +47,7 @@ class MultiResBlock(torch.nn.Module):
         else:
             x = inp
         shortcut = self.conv2d_bn(x)
-        conv3x3 = self.conv3x3(inp)
+        conv3x3 = self.conv3x3(x)
         conv5x5 = self.conv5x5(conv3x3)
         conv7x7 = self.conv7x7(conv5x5)
         out = torch.cat([conv3x3, conv5x5, conv7x7], dim=1)
